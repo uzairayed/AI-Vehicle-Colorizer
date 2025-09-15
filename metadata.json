@@ -1,0 +1,5 @@
+{
+  "name": "AI Vehicle Colorizer",
+  "description": "Upload a photo of your bike or car and use AI to instantly see a mockup in a new color. Perfect for visualizing your next paint job or wrap.",
+  "requestFramePermissions": []
+}
