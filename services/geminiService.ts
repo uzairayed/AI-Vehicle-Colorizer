@@ -1,5 +1,9 @@
 import { GoogleGenAI, Modality } from "@google/genai";
 
+// Note: The API key is sourced from the `process.env.API_KEY` environment variable,
+// which is a standard and secure practice. It is assumed to be configured in the
+// execution environment.
+
 const fileToGenerativePart = (base64: string, mimeType: string) => {
     return {
         inlineData: {
@@ -15,10 +19,8 @@ export const editImageWithColor = async (
     colorName: string,
     finish: string
 ): Promise<string> => {
-    if (!process.env.API_KEY) {
-        throw new Error("API_KEY environment variable is not set.");
-    }
-
+    // The GoogleGenAI constructor will read the process.env.API_KEY variable.
+    // If it's not set, the constructor will throw a helpful error.
     try {
         const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
@@ -51,6 +53,12 @@ export const editImageWithColor = async (
     } catch (error) {
         console.error("Error calling Gemini API:", error);
         if (error instanceof Error) {
+             if (error.message.includes('API key not valid')) {
+                throw new Error("The configured API key is invalid. Please check your environment configuration.");
+             }
+             if (error.message.includes('RESOURCE_EXHAUSTED')) {
+                throw new Error("You've exceeded the free API usage limit for today. Please try again tomorrow or check your billing plan.");
+             }
             throw new Error(`Failed to edit image: ${error.message}`);
         }
         throw new Error("An unknown error occurred while editing the image.");

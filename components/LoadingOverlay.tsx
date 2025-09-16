@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 
 const LOADING_MESSAGES = [
@@ -26,9 +25,9 @@ const LoadingOverlay: React.FC = () => {
     }, []);
 
     return (
-        <div className="absolute inset-0 bg-black bg-opacity-70 flex flex-col items-center justify-center z-50 rounded-lg">
-            <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-brand-secondary"></div>
-            <p className="text-white text-lg mt-4 font-semibold text-center px-4">{message}</p>
+        <div className="absolute inset-0 bg-paper/80 backdrop-blur-sm flex flex-col items-center justify-center z-50 rounded-lg">
+            <div className="sketch-spinner"></div>
+            <p className="text-ink text-xl mt-4 font-semibold text-center px-4">{message}</p>
         </div>
     );
 };

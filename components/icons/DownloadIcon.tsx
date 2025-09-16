@@ -2,19 +2,15 @@ import React from 'react';
 
 const DownloadIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
   <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="h-6 w-6"
+    viewBox="0 0 64 64"
     fill="none"
-    viewBox="0 0 24 24"
+    xmlns="http://www.w3.org/2000/svg"
     stroke="currentColor"
-    strokeWidth={2}
     {...props}
   >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-    />
+    <path d="M19.3,38.8v6c0,2.8,2.3,5.1,5.1,5.1h14c2.8,0,5.1-2.3,5.1-5.1v-6" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M31.4,43.2v-24" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M25.4,37.2l6,6l6-6" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
   </svg>
 );
 

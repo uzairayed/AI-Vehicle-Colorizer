@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 import UploadIcon from './icons/UploadIcon';
 
@@ -39,8 +38,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageUpload, imagePrevi
     <div className="w-full">
       <label
         htmlFor="image-upload"
-        className={`relative block w-full aspect-video border-2 border-dashed rounded-lg cursor-pointer transition-all duration-300
-                    ${imagePreview ? 'border-brand-secondary/50' : 'border-gray-500 hover:border-brand-secondary'}`}
+        className="relative block w-full aspect-video rounded-lg cursor-pointer transition-all duration-300 sketch-border bg-paper"
         onDrop={handleDrop}
         onDragOver={handleDragOver}
       >
@@ -55,9 +53,9 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageUpload, imagePrevi
         {imagePreview ? (
           <img src={imagePreview} alt="Vehicle preview" className="object-contain w-full h-full rounded-lg" />
         ) : (
-          <div className="flex flex-col items-center justify-center h-full text-gray-400">
+          <div className="flex flex-col items-center justify-center h-full text-ink-secondary">
             <UploadIcon className="w-12 h-12 mb-2" />
-            <span className="font-semibold">Drag & Drop or Click to Upload</span>
+            <span className="font-semibold text-lg">Drag & Drop or Click to Upload</span>
             <span className="text-sm">PNG, JPG, or WEBP</span>
           </div>
         )}
@@ -65,7 +63,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ onImageUpload, imagePrevi
       {imagePreview && (
          <button 
             onClick={triggerFileSelect}
-            className="mt-4 w-full bg-base-300 text-white font-semibold py-2 px-4 rounded-lg hover:bg-opacity-80 transition-colors">
+            className="mt-4 w-full sketch-button text-ink font-semibold py-2 px-4">
             Change Image
          </button>
       )}

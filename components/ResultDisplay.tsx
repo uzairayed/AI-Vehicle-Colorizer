@@ -13,13 +13,13 @@ interface ImageCardProps {
 }
 
 const ImageCard: React.FC<ImageCardProps> = ({ src, title, onDownload }) => (
-    <div className="w-full flex flex-col items-center bg-base-200 p-4 rounded-lg shadow-lg">
+    <div className="w-full flex flex-col items-center bg-paper p-4 rounded-lg sketch-border">
         <div className="w-full flex justify-between items-center mb-3">
-            <h3 className="text-xl font-bold text-white">{title}</h3>
+            <h3 className="text-2xl font-bold text-ink">{title}</h3>
             {onDownload && (
                 <button
                     onClick={onDownload}
-                    className="flex items-center gap-2 bg-brand-secondary text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-500 transition-colors"
+                    className="flex items-center gap-2 bg-brand-blue text-paper sketch-button font-semibold py-2 px-4"
                     aria-label="Download edited image"
                 >
                     <DownloadIcon className="h-5 w-5" />
@@ -53,7 +53,7 @@ const ResultDisplay: React.FC<ResultDisplayProps> = ({ originalImage, editedImag
 
   return (
     <div className="w-full mt-10">
-        <h2 className="text-3xl font-bold text-center text-white mb-6">Results</h2>
+        <h2 className="text-4xl font-bold text-center text-ink mb-6">Results</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <ImageCard src={originalImage} title="Before"/>
             <ImageCard src={editedImage} title="After" onDownload={handleDownload} />

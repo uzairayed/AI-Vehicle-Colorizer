@@ -9,17 +9,17 @@ interface FinishSelectorProps {
 const FinishSelector: React.FC<FinishSelectorProps> = ({ selectedFinish, onFinishSelect }) => {
   return (
     <div className="w-full">
-      <h3 className="text-lg font-semibold text-gray-200 mb-3">3. Choose a Finish</h3>
+      <h3 className="text-xl font-semibold text-ink-secondary mb-3">3. Choose a Finish</h3>
       <div className="grid grid-cols-3 gap-3">
         {VEHICLE_FINISHES.map((finish) => (
           <button
             key={finish.name}
             title={finish.description}
             onClick={() => onFinishSelect(finish.name)}
-            className={`group relative w-full p-3 rounded-lg text-center font-semibold transition-all duration-200
+            className={`group relative w-full p-3 text-center transition-all duration-200 sketch-button text-ink
                         ${selectedFinish === finish.name 
-                            ? 'bg-brand-secondary text-white ring-2 ring-offset-2 ring-offset-base-200 ring-brand-secondary' 
-                            : 'bg-base-300 hover:bg-opacity-80'}`}
+                            ? 'bg-brand-blue text-paper' 
+                            : 'bg-paper hover:bg-paper-2'}`}
           >
             {finish.name}
           </button>
